@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memory Composer — Fotoğraftan Müzik</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+
+<body>
+  <header>
+    <h1>🎵 Memory Composer</h1>
+    <p>“Bir fotoğraf yükle, o fotoğrafın sesini duy.”</p>
+  </header>
+
+  <main>
+    <div class="controls">
+      <label for="file">Bir fotoğraf seç:</label>
+      <input type="file" id="file" accept="image/*" />
+
+      <label for="density">Örnekleme Yoğunluğu</label>
+      <input type="range" id="density" min="4" max="40" value="12" />
+
+      <label for="duration">Süre (saniye)</label>
+      <input type="range" id="duration" min="4" max="60" value="16" />
+
+      <label for="scale">Gam</label>
+      <select id="scale">
+        <option value="C major pentatonic">C Majör Pentatonik</option>
+        <option value="A minor pentatonic">A Minör Pentatonik</option>
+        <option value="G major">G Majör</option>
+        <option value="A minor">A Minör</option>
+      </select>
+
+      <p id="moodLabel" class="mood-info">🧠 Ruh hali: –</p>
+
+      <button id="play" disabled>▶ Oynat</button>
+      <button id="stop" disabled>⏹ Durdur</button>
+      <button id="save" disabled>💾 Kaydet</button>
+    </div>
+
+    <div class="preview">
+      <canvas id="canvas" width="640" height="400"></canvas>
+      <canvas id="waveCanvas" width="640" height="120"></canvas>
+      <img id="img" alt="Yüklenen görsel" style="display:none;" />
+    </div>
+  </main>
+
+  <footer>
+    <p>Made with ❤️ using <a href="https://tonejs.github.io/" target="_blank">Tone.js</a></p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/tone@14.8.49/build/Tone.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
